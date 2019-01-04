@@ -10,6 +10,11 @@ srcDir        = "src"
 # Dependencies
 
 requires "nim >= 0.19.9"
+requires "nimgen >= 0.5.0"
+
+before install:
+  var cmd = when defined(Windows): "cmd /c " else: ""
+  exec cmd & "nimgen wren.cfg"
 
 
 task ex1, "Run example 1 (hello world)":

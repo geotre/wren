@@ -1,5 +1,6 @@
 
-import ./wren/libwren
+import ospaths
+import ./wren/git/libwren
 
 export libwren
 
@@ -87,6 +88,15 @@ proc defaultConfig*: ptr WrenConfiguration =
 
 
 proc runScript* (vm: ptr WrenVM, path: string) =
-  let script = readFile(path)
-  let result = interpret(vm, script)
+  let
+    script = readFile(path).cstring
+    name = splitFile(path)[1]
+    result = interpret(vm, name, script)
+  if result != WREN_RESULT_SUCCESS: quit "[!!!!]  Script failed to compile"
+
+
+proc runScript* (vm: ptr WrenVM, module, path: string) =
+  let
+    script = readFile(path).cstring
+    result = interpret(vm, module, script)
   if result != WREN_RESULT_SUCCESS: quit "[!!!!]  Script failed to compile"

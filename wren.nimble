@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.1.0"
+version       = "0.2.0"
 author        = "geotre"
 description   = "A nim wrapper for Wren, an embedded scripting language"
 license       = "MIT"

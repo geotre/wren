@@ -9,7 +9,7 @@ srcDir        = "src"
 
 # Dependencies
 
-requires "nim >= 0.19.9"
+requires "nim >= 0.19.2"
 requires "nimgen >= 0.5.0"
 
 var

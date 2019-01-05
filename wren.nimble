@@ -12,9 +12,21 @@ srcDir        = "src"
 requires "nim >= 0.19.9"
 requires "nimgen >= 0.5.0"
 
+var
+  name = "wren"
+  cmd = when defined(Windows): "cmd /c " else: ""
+
+if fileExists(name & ".nimble"):
+  mkDir(name)
+
+task setup, "Checkout and generate":
+  if gorgeEx(cmd & "nimgen").exitCode != 0:
+    withDir(".."):
+      exec "nimble install nimgen -y"
+  exec cmd & "nimgen " & name & ".cfg"
+
 before install:
-  var cmd = when defined(Windows): "cmd /c " else: ""
-  exec cmd & "nimgen wren.cfg"
+setupTask()
 
 
 task ex1, "Run example 1 (hello world)":

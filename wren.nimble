@@ -26,7 +26,7 @@ task setup, "Checkout and generate":
   exec cmd & "nimgen " & name & ".cfg"
 
 before install:
-setupTask()
+  setupTask()
 
 
 task ex1, "Run example 1 (hello world)":

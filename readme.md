@@ -7,7 +7,7 @@ This package uses [nimgen](https://github.com/genotrance/nimgen) and [c2nim](htt
 
 ## Installation
 
-This package is distributed on nimble: `nimble install wren` (in progress)
+This package is distributed on nimble: `nimble install wren`
 
 ## Usage
 

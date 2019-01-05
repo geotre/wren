@@ -1,5 +1,5 @@
 
-import ospaths
+import os
 import ./wren/git/libwren
 
 export libwren
@@ -40,8 +40,6 @@ proc defaultConfig*: ptr WrenConfiguration =
   result.reallocateFn = proc (
     memory: pointer; newSize: csize
   ): pointer {.cdecl.} =
-    # later use dealloc(a)  ??
-    # might need to used shared mem (allocShared ?)
     var a = realloc(memory, newSize)
     return a
 

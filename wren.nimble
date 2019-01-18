@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.2.0"
+version       = "0.2.1"
 author        = "geotre"
 description   = "A nim wrapper for Wren, an embedded scripting language"
 license       = "MIT"
@@ -9,7 +9,7 @@ srcDir        = "src"
 
 # Dependencies
 
-requires "nim >= 0.19.2"
+requires "nim >= 0.19.0"
 requires "nimgen >= 0.5.0"
 
 var
